@@ -19,7 +19,7 @@ chsh -s $(which zsh)
 # Removes existing dotfiles from $HOME (if they exists) and symlinks the updated files from the .dotfiles
 echo "Symlinking dotfiles to the home directory"
 
-for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|.*.md|Brewfile' ) ; do
+for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|.*.md|Brewfile|*.sh' ) ; do
   $targetFile = "$PWD/$file"
 
   if [ -f "$targetFile" ]
