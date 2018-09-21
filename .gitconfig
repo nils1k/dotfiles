@@ -1,37 +1,42 @@
 [alias]
 
-    # View abbreviated SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	# Update the index to stage all changes 
+	aa = add --all
 
-    # View the current working tree status using the short format
-	s = status -s
+	# Clone a repository including all submodules
+	c = clone --recursive
+
+	# Switch to a branch, creating it if necessary
+	co = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
+	# Commit changes and display the full diff being commited
+	ci = commit -v
 
     # Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
+	# Find commits by commit message
+	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+
+	# Find tags containing commit
+	ft = "!f() { git describe --always --contains $1; }; f"
+
+	# View abbreviated SHA, description, and history graph of the latest 20 commits
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
     # Pull in remote changes for the current repository and all its submodules
 	p = !"git pull; git submodule foreach git pull origin master"
 
-    # Clone a repository including all submodules
-	c = clone --recursive
+	# View the current working tree status using the short format
+	s = status -s
 
-    # Switch to a branch, creating it if necessary
-	co = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+	# View the current working tree status
+	st = status
 
     # Show verbose output about tags, branches or remotes
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
-
-    # Find tags containing commit
-	ft = "!f() { git describe --always --contains $1; }; f"
-
-    # Find commits by commit message
-	fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
-
-    commit = git add . && git commit -m
-    gcommit = git add . && git commit
-    gst = git status
 
 [apply]
 
@@ -62,6 +67,9 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+
+[fetch]
+  prune = true
 	
 # URL shorthands
 
@@ -84,7 +92,3 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
-
-[user]
-	email = ajmalsiddiqui21@gmail.com
-	name = Mohammed Ajmal Siddiqui
