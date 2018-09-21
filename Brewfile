@@ -46,5 +46,3 @@ cask 'spotify'
 cask 'the-unarchiver'
 cask 'visual-studio-code'
 cask 'vlc'
-
-brew cleanup
