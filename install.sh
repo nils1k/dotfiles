@@ -11,7 +11,6 @@ fi
 brew update
 
 # Install all our dependencies with bundle (see Brewfile)
-brew tap homebrew/bundle
 brew bundle
 
 # Make ZSH the default shell environment
