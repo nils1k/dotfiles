@@ -16,11 +16,8 @@ brew bundle
 # Make ZSH the default shell environment
 chsh -s $(which zsh)
 
-# Removes .zshrc from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
+# Removes existing dotfiles from $HOME (if they exists) and symlinks the updated files from the .dotfiles
 echo "Symlinking dotfiles to the home directory"
-
-rm -rf $HOME/.zshrc
-ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 
 for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|.*.md|Brewfile' ) ; do
   $targetFile = "$PWD/$file"
