@@ -92,3 +92,7 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+[user]
+	signingkey = 8E5B1356D9E12947
+[commit]
+	gpgsign = true

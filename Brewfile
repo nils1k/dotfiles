@@ -1,5 +1,7 @@
 cask_args appdir: '/Applications'
 
+tap homebrew/cask-fonts
+
 # Install Binaries
 brew 'awscli'
 brew 'azure-cli'
@@ -31,12 +33,12 @@ cask 'dotnet'
 cask 'dropbox'
 cask 'fastlane'
 cask 'firefox'
-cask 'google-chrome'
 cask 'google-cloud-sdk'
-cask 'gpgtools'
+cask 'gpg-suite'
 cask 'intellij-idea'
 cask 'iterm2'
 cask 'java'
+cask 'minikube'
 cask 'postbox'
 cask 'powershell'
 cask 'skype'
@@ -45,4 +47,8 @@ cask 'spectacle'
 cask 'spotify'
 cask 'the-unarchiver'
 cask 'visual-studio-code'
+cask 'virtualbox'
 cask 'vlc'
+
+# Fonts
+cask 'font-meslo-for-powerline'
